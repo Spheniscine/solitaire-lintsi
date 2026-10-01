@@ -2,16 +2,16 @@ use async_std::stream::StreamExt;
 use dioxus::prelude::*;
 use glam::Vec2;
 
-use crate::{components::{BoardComponent, EMOJI_MAP, rem}, game::{ANIMATION_DURATION, AnimationKey, GameState, ScreenState}};
+use crate::{components::{BoardComponent, EMOJI_MAP, LocalStorage, rem}, game::{ANIMATION_DURATION, AnimationKey, GameState, ScreenState}};
 
 #[component]
 pub fn Hero() -> Element {
     let mut state = use_signal(|| {
-        // if let Some(mut state) = LocalStorage.load_game_state() {
-        //     state.board.selected = None;
-        //     state.screen_state = ScreenState::Game;
-        //     return state;
-        // }
+        if let Some(mut state) = LocalStorage.load_game_state() {
+            state.board.selected = None;
+            state.screen_state = ScreenState::Game;
+            return state;
+        }
         GameState::init()
     });
     let confetti_counter = use_memo(move || {

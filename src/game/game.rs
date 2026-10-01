@@ -4,7 +4,7 @@ use rand::{Rng, seq::SliceRandom};
 use serde::{Deserialize, Serialize};
 use strum::IntoEnumIterator;
 
-use crate::game::{Board, BoardPos, Card, DECK_SIZE, DepotRole, NUM_RANKS, RANKS, Skin, Suit};
+use crate::{components::LocalStorage, game::{Board, BoardPos, Card, DECK_SIZE, DepotRole, NUM_RANKS, RANKS, Skin, Suit}};
 
 pub const ANIMATION_DURATION: Duration = Duration::from_millis(200);
 pub type AnimationKey = u16;
@@ -75,7 +75,7 @@ impl GameState {
         self.history.clear();
         self.undo_stack.clear();
         self.already_won = false;
-        // LocalStorage.save_game_state(&self);
+        LocalStorage.save_game_state(&self);
     }
 
     pub fn is_busy(&self) -> bool {
@@ -237,7 +237,7 @@ impl GameState {
             // self.check_auto_moves();
         }
 
-        // if !self.is_busy() { LocalStorage.save_game_state(&self); }
+        if !self.is_busy() { LocalStorage.save_game_state(&self); }
     }
 
     pub fn undo(&mut self) {
@@ -252,7 +252,7 @@ impl GameState {
             }
             self.board.advance_actions(); // no animation, as repeated card moves on same card causes problems
         }
-        // LocalStorage.save_game_state(&self);
+        LocalStorage.save_game_state(&self);
     }
 
     pub fn restart(&mut self) {
@@ -260,6 +260,6 @@ impl GameState {
         self.board = Board::from_deal(&self.deal);
         self.history.clear();
         self.undo_stack.clear();
-        // LocalStorage.save_game_state(&self);
+        LocalStorage.save_game_state(&self);
     }
 }
