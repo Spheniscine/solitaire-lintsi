@@ -42,11 +42,20 @@ impl SkinTrait<Card> for Skin {
                 }
             },
             Card::Joker => rsx! {
-                span {
-                    font_family: SYMBOLS_2_FONT_STR,
-                    position: "relative",
-                    top: "0.13em",
-                    "✪"
+                match self.suits {
+                    SuitSkin::Animals => rsx! {
+                        Emoji { 
+                            text: "🦄"
+                        }
+                    },
+                    SuitSkin::Traditional => rsx! {
+                        span {
+                            font_family: SYMBOLS_2_FONT_STR,
+                            position: "relative",
+                            top: "0.13em",
+                            "✪"
+                        }
+                    },
                 }
             }
         }
