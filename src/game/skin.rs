@@ -61,6 +61,9 @@ impl SuitSkin {
     }
 }
 
+pub const SYMBOLS_2_FONT_STR: &str = "'Noto Sans Symbols 2'";
+pub const KATEX_SUITS_FONT_STR: &str = "KaTeX_Suits";
+
 const COLOR_AMBER: [&str; 2] = ["#b70", "#ffb433"];
 const COLOR_GREEN: [&str; 2] = ["#062", "#00ff55"];
 const COLOR_RED: [&str; 2] = ["#f00", "#ff8888"];
@@ -122,6 +125,10 @@ impl ColorSkin {
             },
         };
         res[mode as usize]
+    }
+
+    pub fn color_joker(self, mode: ColorMode) -> &'static str {
+        COLOR_PURPLE[mode as usize]
     }
 }
 
