@@ -140,7 +140,7 @@ impl GameState {
         self.is_won()
     }
 
-    fn move_intent(&mut self, mut pos1: BoardPos, pos2: BoardPos) -> bool {
+    fn move_intent(&mut self, pos1: BoardPos, pos2: BoardPos) -> bool {
         if pos1.depot_index == pos2.depot_index { return false; }
         let depot1 = &self.board.depots[pos1.depot_index];
         let depot2 = &self.board.depots[pos2.depot_index];

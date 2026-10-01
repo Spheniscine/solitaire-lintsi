@@ -1,4 +1,4 @@
-use dioxus::{html::g::spacing, prelude::*};
+use dioxus::prelude::*;
 use glam::Vec2;
 
 use crate::{components::{CARD_BORDER_RADIUS_RATIO, CARD_HEIGHT_RATIO, CardComponent, CardFrame, Movement, SkinTrait, rem}, game::{AnimationAct, AnimationKey, Board, BoardPos, Card, DepotRole, NUM_DEPOTS, RANK_MIN, SYMBOLS_2_FONT_STR, Skin, Suit, SuitSkin}};
@@ -78,7 +78,7 @@ pub fn BoardComponent(
     };
 
     let get_hint = |depot: usize| {
-        let (role, index) = DepotRole::role_and_subindex(depot).unwrap();
+        let role = DepotRole::role(depot).unwrap();
         match role {
             DepotRole::Tableau => Some(rsx! {}),
             DepotRole::JokerPile => Some(skin.joker_hint()),

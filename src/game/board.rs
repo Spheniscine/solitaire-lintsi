@@ -1,6 +1,5 @@
 use std::ops::Range;
 
-use dioxus::html::KeyCode::N;
 use serde::{Deserialize, Serialize};
 use serde_tuple::{Deserialize_tuple, Serialize_tuple};
 use strum::{IntoEnumIterator, VariantArray};
@@ -127,7 +126,6 @@ impl Board {
     }
 
     pub fn advance_actions(&mut self) {
-        use DepotRole::*;
         for act in self.animation_acts.drain(..) {
             match act {
                 AnimationAct::Move { cards, pos2, .. } => {
@@ -141,7 +139,7 @@ impl Board {
         BoardPos::new(depot, self.depots[depot].len())
     }
 
-    pub fn last_pos(&self, depot: usize) -> BoardPos {
-        BoardPos::new(depot, self.depots[depot].len().wrapping_sub(1))
-    }
+    // pub fn last_pos(&self, depot: usize) -> BoardPos {
+    //     BoardPos::new(depot, self.depots[depot].len().wrapping_sub(1))
+    // }
 }
