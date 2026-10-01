@@ -68,7 +68,7 @@ pub const NUM_SUITS: usize = Suit::COUNT;
 pub const NUM_RANKS: usize = (RANK_MAX - RANK_MIN) as usize + 1;
 pub const DECK_SIZE: usize = NUM_RANKS * NUM_SUITS;
 
-pub const NUM_JOKERS: usize = 3;
+pub const NUM_JOKERS: usize = 4;
 
 impl Card {
     pub fn code(self) -> String {
