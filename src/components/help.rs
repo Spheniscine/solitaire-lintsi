@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::{components::rem, game::{DECK_SIZE, GameState, NUM_JOKERS, NUM_RANKS, NUM_SUITS, ScreenState,}};
+use crate::{components::{VIDEO_GAMEPLAY, rem}, game::{DECK_SIZE, GameState, NUM_JOKERS, NUM_RANKS, NUM_SUITS, ScreenState,}};
 
 #[component]
 fn Emph(children: Element) -> Element {
@@ -69,14 +69,14 @@ pub fn Help(mut game_state: Signal<GameState>) -> Element {
                     justify_content: "center",
 
                     a {
-                        href: "#",// VIDEO_GAMEPLAY,
+                        href: VIDEO_GAMEPLAY,
                         target: "_blank",
                         text_decoration: "none",
                         margin_right: rem(4.),
                         div {
                             width: rem(30.),
                             position: "relative",
-                            class: "game-button-disabled",// "game-button",
+                            class: "game-button",
                             "Example video"
                         }
                     }
