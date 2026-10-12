@@ -1,4 +1,4 @@
-# Fortune Cookie Solitaire
+# Lintsi Solitaire
 
 A web-and-mobile-friendly implementation of Lintsi Solitaire.
 
