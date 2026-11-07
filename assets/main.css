@@ -80,7 +80,7 @@ body {
 }
 
 .selected-halo {
-    box-shadow: 0 0 0.8rem 0.8rem #ff0;
+    box-shadow: 0 0 1rem 1rem #ff0;
 }
 
 #settingsDialog {
