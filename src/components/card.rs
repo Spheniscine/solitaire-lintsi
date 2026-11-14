@@ -127,8 +127,8 @@ pub fn CardComponent(
     onclick: EventHandler<MouseEvent>,
     #[props(default)]
     ondoubleclick: EventHandler<MouseEvent>,
-    #[props(default)]
-    oncontextmenu: EventHandler<MouseEvent>,
+    // #[props(default)]
+    // oncontextmenu: EventHandler<MouseEvent>,
 ) -> Element {
     let color_mode = if matches!(card, Card::Joker) {ColorMode::Dark} else {ColorMode::Light};
     rsx! {
